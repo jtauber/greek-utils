@@ -9,6 +9,7 @@ install:
   - pip install coveralls
 script:
   - flake8 .
+  - python -m doctest docs.rst
   - coverage run --branch --source greekutils test.py
 after_success:
   - coveralls

@@ -5,4 +5,14 @@
 
 various utilities for processing Ancient Greek
 
+Features so far:
+
+* Convert BetaCode to Unicode
+* Turn an iterable into a generator over trigrams
+* A Trie datastructure
+* MorphGNT BCV string to human-readable verse reference
+
+See [docs.rst](https://github.com/jtauber/greek-utils/blob/master/docs.rst)
+for documentation.
+
 For more of my work on Ancient Greek, see <http://jktauber.com/>.
