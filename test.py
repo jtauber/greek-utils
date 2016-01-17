@@ -34,5 +34,16 @@ class Beta2UnicodeTest(unittest.TestCase):
             convert("(@)")
 
 
+class TrigramTest(unittest.TestCase):
+
+    def test_1(self):
+        from greekutils.trigram import trigram
+        self.assertEqual(list(trigram("ABC")), [
+            (None, "A", "B"),
+            ("A", "B", "C"),
+            ("B", "C", None),
+        ])
+
+
 if __name__ == "__main__":
     unittest.main()
