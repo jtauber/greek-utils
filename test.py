@@ -22,5 +22,17 @@ class TrieTest(unittest.TestCase):
         self.assertEqual(self.t.find_prefix("abdc"), ("a", "yes", "bdc"))
 
 
+class Beta2UnicodeTest(unittest.TestCase):
+
+    def test_1(self):
+        from greekutils.beta2unicode import convert
+        self.assertEqual(convert("LO/GOS\n"), "λόγος")
+
+    def test_2(self):
+        from greekutils.beta2unicode import convert
+        with self.assertRaises(KeyError):
+            convert("(@)")
+
+
 if __name__ == "__main__":
     unittest.main()
