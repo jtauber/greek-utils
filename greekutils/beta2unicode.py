@@ -23,7 +23,7 @@ def generate_trie():
     t.add("*O", "\u039F")
     t.add("*P", "\u03A0")
     t.add("*R", "\u03A1")
-    # U+03A2
+    # U+03A2 not used
     t.add("*S", "\u03A3")
     t.add("*T", "\u03A4")
     t.add("*U", "\u03A5")
@@ -31,7 +31,9 @@ def generate_trie():
     t.add("*X", "\u03A7")
     t.add("*Y", "\u03A8")
     t.add("*W", "\u03A9")
-    # U+03AA thru U+03B0
+    t.add("*I+", "\u03AA")
+    t.add("*U+", "\u03AB")
+    # U+03AC thru U+03B0 (lower case with tonos)
     t.add("A", "\u03B1")
     t.add("B", "\u03B2")
     t.add("G", "\u03B3")
@@ -66,9 +68,14 @@ def generate_trie():
     t.add("W", "\u03C9")
     t.add("I+", "\u03CA")
     t.add("U+", "\u03CB")
-    # U+03CC thru U+03D9
+    # U+03CC thru U+03CE (lower case with tonos)
+    # U+03CF thru U+03D7 (variant)
+    # U+03D8 and U+03D9 (archaic)
     t.add("*V", "\u03DA")
     t.add("V", "\u03DB")
+    # U+03DC thru U+03E1 (archaic)
+
+    ## Greek Extended
 
     t.add("A)", "\u1F00")
     t.add("A(", "\u1F01")
@@ -82,34 +89,34 @@ def generate_trie():
     t.add("*)A", "\u1F08")
     t.add("*A(", "\u1F09")
     t.add("*(A", "\u1F09")
-    # U+1F0A
-    t.add("*(\A", "\u1F0B")
+    t.add("*)\\A", "\u1F0A")
+    t.add("*(\\A", "\u1F0B")
     t.add("*A)/", "\u1F0C")
     t.add("*)/A", "\u1F0C")
-    # U+1F0D
-    t.add("*A)=", "\u1F0E")
+    t.add("*(/A", "\u1F0D")
+    t.add("*A(/", "\u1F0D")
     t.add("*)=A", "\u1F0E")
-    t.add("*A(=", "\u1F0F")  # @@@ check these three
-    t.add("*A(/", "\u1F0F")  # @@@ check these three
-    t.add("*(/A", "\u1F0F")  # @@@ check these three
+    t.add("*A)=", "\u1F0E")
+    t.add("*(=A", "\u1F0F")
+    t.add("*A(=", "\u1F0F")
     t.add("E)", "\u1F10")
     t.add("E(", "\u1F11")
     t.add("E)\\", "\u1F12")
     t.add("E(\\", "\u1F13")
     t.add("E)/", "\u1F14")
     t.add("E(/", "\u1F15")
-    # U+1F16 and U+1F17
+    # U+1F16 and U+1F17 not used
     t.add("*E)", "\u1F18")
     t.add("*)E", "\u1F18")
     t.add("*E(", "\u1F19")
     t.add("*(E", "\u1F19")
-    # U+1F1A
-    t.add("*(\E", "\u1F1B")
+    t.add("*)\\E", "\u1F1A")
+    t.add("*(\\E", "\u1F1B")
     t.add("*E)/", "\u1F1C")
     t.add("*)/E", "\u1F1C")
     t.add("*E(/", "\u1F1D")
     t.add("*(/E", "\u1F1D")
-    # U+1F1E and U+1F1F
+    # U+1F1E and U+1F1F not used
     t.add("H)", "\u1F20")
     t.add("H(", "\u1F21")
     t.add("H)\\", "\u1F22")
@@ -118,20 +125,20 @@ def generate_trie():
     t.add("H(/", "\u1F25")
     t.add("H)=", "\u1F26")
     t.add("H(=", "\u1F27")
-    t.add("*H)", "\u1F28")
     t.add("*)H", "\u1F28")
-    t.add("*H(", "\u1F29")
+    t.add("*H)", "\u1F28")
     t.add("*(H", "\u1F29")
-    t.add("*H)\\", "\u1F2A")
+    t.add("*H(", "\u1F29")
     t.add(")\\*H", "\u1F2A")
+    t.add("*H)\\", "\u1F2A")
     t.add("*)\\H", "\u1F2A")
-    # U+1F2B
-    t.add("*H)/", "\u1F2C")
+    t.add("*(\\H", "\u1F2B")
     t.add("*)/H", "\u1F2C")
-    # U+1F2D
+    t.add("*H)/", "\u1F2C")
+    t.add("*(/H", "\u1F2D")
+    t.add("(/*H", "\u1F2D")
     t.add("*)=H", "\u1F2E")
-    t.add("(/*H", "\u1F2F")
-    t.add("*(/H", "\u1F2F")
+    t.add("*(=H", "\u1F2F")
     t.add("I)", "\u1F30")
     t.add("I(", "\u1F31")
     t.add("I)\\", "\u1F32")
@@ -144,30 +151,32 @@ def generate_trie():
     t.add("*)I", "\u1F38")
     t.add("*I(", "\u1F39")
     t.add("*(I", "\u1F39")
-    # U+1F3A and U+1F3B
+    t.add("*)\\I", "\u1F3A")
+    t.add("*(\\I", "\u1F3B")
     t.add("*I)/", "\u1F3C")
     t.add("*)/I", "\u1F3C")
-    # U+1F3D and U+1F3E
-    t.add("*I(/", "\u1F3F")
-    t.add("*(/I", "\u1F3F")
+    t.add("*(/I", "\u1F3D")
+    t.add("*I(/", "\u1F3D")
+    t.add("*)=I", "\u1F3E")
+    t.add("*(=I", "\u1F3F")
     t.add("O)", "\u1F40")
     t.add("O(", "\u1F41")
     t.add("O)\\", "\u1F42")
     t.add("O(\\", "\u1F43")
     t.add("O)/", "\u1F44")
     t.add("O(/", "\u1F45")
-    # U+1F46 and U+1F47
+    # U+1F46 and U+1F47 not used
     t.add("*O)", "\u1F48")
     t.add("*)O", "\u1F48")
     t.add("*O(", "\u1F49")
     t.add("*(O", "\u1F49")
-    # U+1F4A
-    t.add("*(\O", "\u1F4B")
-    t.add("*O)/", "\u1F4C")
+    t.add("*)\\O", "\u1F4A")
+    t.add("*(\\O", "\u1F4B")
     t.add("*)/O", "\u1F4C")
-    # U+1F4D and U+1F4E
-    t.add("*O(/", "\u1F4F")
-    t.add("*(/O", "\u1F4F")
+    t.add("*O)/", "\u1F4C")
+    t.add("*(/O", "\u1F4D")
+    t.add("*O(/", "\u1F4D")
+    # U+1F4E and U+1F4F not used
     t.add("U)", "\u1F50")
     t.add("U(", "\u1F51")
     t.add("U)\\", "\u1F52")
@@ -176,12 +185,14 @@ def generate_trie():
     t.add("U(/", "\u1F55")
     t.add("U)=", "\u1F56")
     t.add("U(=", "\u1F57")
-    # U+1F58
+    # U+1F58 not used
     t.add("*U(", "\u1F59")
     t.add("*(U", "\u1F59")
-    # U+1F5A thru U+1F5C
+    # U+1F5A not used
+    t.add("*(\\U", "\u1F5B")
+    # U+1F5C not used
     t.add("*(/U", "\u1F5D")
-    # U+1F5E
+    # U+1F5E not used
     t.add("*(=U", "\u1F5F")
     t.add("W)", "\u1F60")
     t.add("W(", "\u1F61")
@@ -194,16 +205,16 @@ def generate_trie():
     t.add("*W)", "\u1F68")
     t.add("*W(", "\u1F69")
     t.add("*(W", "\u1F69")
-    # U+1F6A and U+1F6B
-    t.add("*W)/", "\u1F6C")
+    t.add("*)\\W", "\u1F6A")
+    t.add("*(\\W", "\u1F6B")
     t.add("*)/W", "\u1F6C")
-    # U+1F6D
-    t.add("*W)=", "\u1F6E")
+    t.add("*W)/", "\u1F6C")
+    t.add("*(/W", "\u1F6D")
+    t.add("*W(/", "\u1F6D")
     t.add("*)=W", "\u1F6E")
-    t.add("*W(/", "\u1F6F")  # @@@
-    t.add("*(/W", "\u1F6F")  # @@@
-    t.add("*W(=", "\u1F6F")  # @@@
-    t.add("*(=W", "\u1F6F")  # @@@
+    t.add("*W)=", "\u1F6E")
+    t.add("*(=W", "\u1F6F")
+    t.add("*W(=", "\u1F6F")
     t.add("A\\", "\u1F70")
     t.add("A/", "\u1F71")
     t.add("E\\", "\u1F72")
@@ -218,66 +229,118 @@ def generate_trie():
     t.add("U/", "\u1F7B")
     t.add("W\\", "\u1F7C")
     t.add("W/", "\u1F7D")
-    # U+1F7E and U+1F7F
+    # U+1F7E and U+1F7F not used
     t.add("A)|", "\u1F80")
-    # U+1F81 thru U+1F83
+    t.add("A(|", "\u1F81")
+    t.add("A)\\|", "\u1F82")
+    t.add("A(\\|", "\u1F83")
     t.add("A)/|", "\u1F84")
     t.add("A(/|", "\u1F85")
     t.add("A)=|", "\u1F86")
-    # U+1F87
+    t.add("A(=|", "\u1F87")
     t.add("*A)|", "\u1F88")
-    # U+1F89 thru U+1F8D
+    t.add("*A(|", "\u1F89")
+    t.add("*A)\\|", "\u1F8A")
+    t.add("*A(\\|", "\u1F8B")
+    t.add("*A)/|", "\u1F8C")
+    t.add("*A(/|", "\u1F8D")
     t.add("*A)=|", "\u1F8E")
-    # U+1F8F
+    t.add("*A(=|", "\u1F8F")
     t.add("H)|", "\u1F90")
     t.add("H(|", "\u1F91")
-    # U+1F92 and U+1F93
+    t.add("H)\\|", "\u1F92")
+    t.add("H(\\|", "\u1F93")
     t.add("H)/|", "\u1F94")
-    # U+1F95
+    t.add("H(/|", "\u1F95")
     t.add("H)=|", "\u1F96")
     t.add("H(=|", "\u1F97")
-    # U+1F98 thru U+1F9F
+    t.add("*H)|", "\u1F98")
+    t.add("*H(|", "\u1F99")
+    t.add("*H)\\|", "\u1F9A")
+    t.add("*H(\\|", "\u1F9B")
+    t.add("*H)/|", "\u1F9C")
+    t.add("*H(/|", "\u1F9D")
+    t.add("*H)=|", "\u1F9E")
+    t.add("*H(=|", "\u1F9F")
     t.add("W)|", "\u1FA0")
-    # U+1FA1 thru U+1FA3
+    t.add("W(|", "\u1FA1")
+    t.add("W)\\|", "\u1FA2")
+    t.add("W(\\|", "\u1FA3")
     t.add("W)/|", "\u1FA4")
-    # U+1FA5 and U+1FA6
+    t.add("W(/|", "\u1FA5")
+    t.add("W)=|", "\u1FA6")
     t.add("W(=|", "\u1FA7")
-    # U+1FA8 thru U+1FAB
+    t.add("*W)|", "\u1FA8")
+    t.add("*W(|", "\u1FA9")
+    t.add("*W)\\|", "\u1FAA")
+    t.add("*W(\\|", "\u1FAB")
     t.add("*W)/|", "\u1FAC")
-    # U+1FAD thru U+1FB2
+    t.add("*W(/|", "\u1FAD")
+    t.add("*W)=|", "\u1FAE")
+    t.add("*W(=|", "\u1FAF")
+    # U+1FB0 and U+1FB1 (vrachy / macron)
+    t.add("A\\|", "\u1FB2")
     t.add("A|", "\u1FB3")
     t.add("A/|", "\u1FB4")
-    # U+1FB5
+    # U+1FB5 not used
     t.add("A=", "\u1FB6")
     t.add("A=|", "\u1FB7")
-    # U+1FB8 thru U+1FC2
+    # U+1FB8 and U+1FB9 (vrachy / macron)
+    t.add("*A\\", "\u1FBA")
+    t.add("*A/", "\u1FBB")
+    t.add("*A|", "\u1FBC")
+    # U+1FBD thru U+1FC2 (diacritics)
     t.add("H|", "\u1FC3")
     t.add("H/|", "\u1FC4")
-    # U+1FC5
+    # U+1FC5 not used
     t.add("H=", "\u1FC6")
     t.add("H=|", "\u1FC7")
-    # U+1FC8 thru U+1FD1
+    t.add("*E\\", "\u1FC8")
+    t.add("*E/", "\u1FC9")
+    t.add("*H\\", "\u1FCA")
+    t.add("*H/", "\u1FCB")
+    t.add("*H|", "\u1FCC")
+    # U+1FCD thru U+1FCF (diacritics)
+    # U+1FD0 and U+1FD1 (vrachy / macron)
     t.add("I\\+", "\u1FD2")
     t.add("I/+", "\u1FD3")
     t.add("I+/", "\u1FD3")
+    # U+1FD4 and U+1FD5 not used
     t.add("I=", "\u1FD6")
-    # U+1FD7 thru U+1FE1
+    t.add("I=+", "\u1FD7")
+    # U+1FD8 and U+1FD9 (vrachy / macron)
+    t.add("*I\\", "\u1FDA")
+    t.add("*I/", "\u1FDB")
+    # U+1FDC not used
+    # U+1FDD thru U+1FDF (diacritics)
+    # U+1FE0 and U+1FE1 (vrachy / macron)
     t.add("U\\+", "\u1FE2")
     t.add("U/+", "\u1FE3")
-    t.add("R(", "\u1FE4")
-    # U+1FE5
+    t.add("R)", "\u1FE4")
+    t.add("R(", "\u1FE5")
     t.add("U=", "\u1FE6")
-    # U+1FE7 thru U+1FEB
+    t.add("U=+", "\u1FE7")
+    # U+1FE8 and U+1FE9 (vrachy / macron)
+    t.add("*U\\", "\u1FEA")
+    t.add("*U/", "\u1FEB")
     t.add("*R(", "\u1FEC")
     t.add("*(R", "\u1FEC")
-    # U+1FED thru U+1FF2
+    # U+1FED thru U+1FEF (diacritics)
+    # U+1FF0 and U+1FF1 not used
+    t.add("W\\|", "\u1FF2")
+    t.add("W|\\", "\u1FF2")
     t.add("W|", "\u1FF3")
     t.add("W|/", "\u1FF4")
     t.add("W/|", "\u1FF4")
-    # U+1FF5
+    # U+1FF5 not used
     t.add("W=", "\u1FF6")
     t.add("W=|", "\u1FF7")
-    # U+1FF8 thru U+1FFF
+    t.add("*O\\", "\u1FF8")
+    t.add("*O/", "\u1FF9")
+    t.add("*W\\", "\u1FFA")
+    t.add("*W/", "\u1FFB")
+    t.add("*W|", "\u1FFC")
+    # U+1FFD and U+1FFE (diacritics)
 
     t.add("~", "~")
     t.add("-", "-")
