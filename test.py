@@ -37,8 +37,8 @@ class Beta2UnicodeTest(unittest.TestCase):
 class TrigramTest(unittest.TestCase):
 
     def test_1(self):
-        from greekutils.trigram import trigram
-        self.assertEqual(list(trigram("ABC")), [
+        from greekutils.trigrams import trigrams
+        self.assertEqual(list(trigrams("ABC")), [
             (None, "A", "B"),
             ("A", "B", "C"),
             ("B", "C", None),

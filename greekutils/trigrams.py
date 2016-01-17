@@ -1,4 +1,4 @@
-def trigram(it):
+def trigrams(it):
 
     prev_2 = None
     prev_1 = None
