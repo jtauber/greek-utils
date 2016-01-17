@@ -45,5 +45,14 @@ class TrigramTest(unittest.TestCase):
         ])
 
 
+class VerseRefTest(unittest.TestCase):
+
+    def test_1(self):
+        from greekutils.verse_ref import bcv_to_verse_ref
+        self.assertEqual(bcv_to_verse_ref("010101"), "Matt 1:1")
+        self.assertEqual(bcv_to_verse_ref("610101", start=61), "Matt 1:1")
+        self.assertEqual(bcv_to_verse_ref("010101", separator="."), "Matt 1.1")
+
+
 if __name__ == "__main__":
     unittest.main()
