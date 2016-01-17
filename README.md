@@ -5,6 +5,10 @@
 
 various utilities for processing Ancient Greek
 
+You can install with
+
+    pip install greek-utils==0.1
+
 Features so far:
 
 * Convert BetaCode to Unicode
