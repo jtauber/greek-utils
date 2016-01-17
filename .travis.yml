@@ -6,5 +6,9 @@ python:
   - "3.5"
 install:
   - pip install flake8
+  - pip install coveralls
 script:
   - flake8 .
+  - coverage run --branch --source greekutils test.py
+after_success:
+  - coveralls
