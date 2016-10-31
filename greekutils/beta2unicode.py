@@ -289,7 +289,8 @@ def generate_trie():
     t.add("*A\\", "\u1FBA")
     t.add("*A/", "\u1FBB")
     t.add("*A|", "\u1FBC")
-    # U+1FBD thru U+1FC2 (diacritics)
+    # U+1FBD thru U+1FC1 (diacritics)
+    t.add("H\\|", "\u1FC2")
     t.add("H|", "\u1FC3")
     t.add("H/|", "\u1FC4")
     # U+1FC5 not used
