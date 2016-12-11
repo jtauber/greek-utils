@@ -52,6 +52,7 @@ def generate_trie():
     t.add("P", "\u03C0")
     t.add("R", "\u03C1")
     t.add("S\n", "\u03C2")
+    t.add("S ", "\u03C2")
     t.add("S,", "\u03C2,")
     t.add("S.", "\u03C2.")
     t.add("S:", "\u03C2:")
