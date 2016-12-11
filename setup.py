@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="greek-utils",
-    version="0.1",
+    version="0.2",
     description="various utilities for processing Ancient Greek",
     license="MIT",
     url="http://github.com/jtauber/greek-utils",

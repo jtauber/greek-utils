@@ -7,7 +7,7 @@ various utilities for processing Ancient Greek
 
 You can install with
 
-    pip install greek-utils==0.1
+    pip install greek-utils==0.2
 
 Features so far:
 
