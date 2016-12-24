@@ -11,12 +11,14 @@ Convert BetaCode to Unicode
 ---------------------------
 
 >>> from greekutils.beta2unicode import convert
+
 >>> convert('LO/GOS\n')
 'λόγος'
 
 Note that to properly handle final sigma, a ``\n`` should be appended to the
 input string.
 
+>>> convert('*(/A|DHS\n')
 
 Turn an iterable into a generator over trigrams
 -----------------------------------------------
