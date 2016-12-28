@@ -19,6 +19,7 @@ Note that to properly handle final sigma, a ``\n`` should be appended to the
 input string.
 
 >>> convert('*(/A|DHS\n')
+'ᾍδης'
 
 Turn an iterable into a generator over trigrams
 -----------------------------------------------
