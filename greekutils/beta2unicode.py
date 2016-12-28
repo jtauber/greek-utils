@@ -245,6 +245,7 @@ def generate_trie():
     t.add("*A(\\|", "\u1F8B")
     t.add("*A)/|", "\u1F8C")
     t.add("*A(/|", "\u1F8D")
+    t.add("*(/A|", "\u1F8D")
     t.add("*A)=|", "\u1F8E")
     t.add("*A(=|", "\u1F8F")
     t.add("H)|", "\u1F90")
